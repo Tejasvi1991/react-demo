@@ -1,13 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
-import Login from "./Login";
+import React from "react";
+import { ThemeProvider, CssBaseline } from "@mui/material";
+import theme from "./theme";
+import Counter from "./Counter";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Welcome to React</h1>
-      <Login />
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline /> 
+      <Counter />
+    </ThemeProvider>
   );
 }
 
