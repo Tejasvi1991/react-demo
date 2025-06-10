@@ -1,0 +1,20 @@
+steps:
+  - name: 'gcr.io/cloud-builders/npm'
+    dir: '.'
+    args: ['install']
+
+  - name: 'gcr.io/cloud-builders/npm'
+    dir: '.'
+    args: ['run', 'build']
+
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gsutil -m rsync -r build gs://$BUCKET_NAME
+        gsutil web set -m index.html -e 404.html gs://$BUCKET_NAME
+        gsutil iam ch allUsers:objectViewer gs://$BUCKET_NAME
+
+substitutions:
+  _BUCKET_NAME: run-sources-react-demo-462408-asia-south1
