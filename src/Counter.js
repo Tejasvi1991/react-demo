@@ -13,7 +13,7 @@ const Counter = () => {
       gap={4}
     >
       <Typography variant="h4" gutterBottom>
-        Welcome to React Counter
+        Welcome to React 
       </Typography>
       <Typography variant="h4">Counter: {count}</Typography>
 
