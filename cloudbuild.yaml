@@ -15,5 +15,12 @@ steps:
         gsutil web set -m index.html -e 404.html gs://run-sources-react-demo-462408-asia-south1
         gsutil iam ch allUsers:objectViewer gs://run-sources-react-demo-462408-asia-south1
 
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud compute url-maps invalidate-cdn-cache react-demo-load-balancer --path "/*"
+
 options:
   logging: CLOUD_LOGGING_ONLY
