@@ -13,6 +13,7 @@ steps:
       - '-c'
       - |
         gsutil -m rsync -r -d build gs://run-sources-react-demo-462408-asia-south1
+        gsutil -h "Cache-Control:no-store" cp build/index.html gs://run-sources-react-demo-462408-asia-south1/index.html
         gsutil web set -m index.html -e 404.html gs://run-sources-react-demo-462408-asia-south1
         gsutil iam ch allUsers:objectViewer gs://run-sources-react-demo-462408-asia-south1
 
