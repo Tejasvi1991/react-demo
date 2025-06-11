@@ -12,6 +12,9 @@ const Counter = () => {
       mt={8}
       gap={4}
     >
+      <Typography variant="h4" gutterBottom>
+        Welcome to React
+      </Typography>
       <Typography variant="h4">Counter: {count}</Typography>
 
       <Box display="flex" gap={2}>
