@@ -12,10 +12,9 @@ steps:
     args:
       - '-c'
       - |
-        gsutil -m rsync -r build gs://run-sources-react-demo-462408-asia-south1
+        gsutil -m rsync -r -d build gs://run-sources-react-demo-462408-asia-south1
         gsutil web set -m index.html -e 404.html gs://run-sources-react-demo-462408-asia-south1
         gsutil iam ch allUsers:objectViewer gs://run-sources-react-demo-462408-asia-south1
 
 options:
   logging: CLOUD_LOGGING_ONLY
-
